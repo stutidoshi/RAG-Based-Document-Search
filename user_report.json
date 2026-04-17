@@ -1,0 +1,3279 @@
+{
+  "user": {
+    "_id": "69da67027a793ea6e66689c3",
+    "username": "dbms_tester",
+    "email": "dbms_tester@example.com",
+    "fullName": "DBMS Tester",
+    "isActive": true,
+    "createdAt": "2026-04-11T15:21:38.156Z",
+    "updatedAt": "2026-04-11T15:21:38.157Z",
+    "__v": 0
+  },
+  "sessions": [
+    {
+      "_id": "69da67027a793ea6e66689c8",
+      "user_id": "69da67027a793ea6e66689c3",
+      "ip_address": "::1",
+      "user_agent": "curl/8.7.1",
+      "login_time": "2026-04-11T15:21:38.699Z",
+      "is_active": true,
+      "__v": 0
+    }
+  ],
+  "documents": [
+    {
+      "_id": "69da67027a793ea6e66689cc",
+      "user_id": "69da67027a793ea6e66689c3",
+      "doc_name": "dbms_doc.txt",
+      "file_path": "uploads/file-1775920898935-98111456.txt",
+      "file_size": 1366,
+      "file_type": "text/plain",
+      "language": "en",
+      "is_processed": true,
+      "created_at": "2026-04-11T15:21:38.938Z",
+      "updated_at": "2026-04-11T15:21:38.938Z",
+      "__v": 0
+    }
+  ],
+  "metadatas": [
+    {
+      "_id": "69da67027a793ea6e66689ce",
+      "document_id": "69da67027a793ea6e66689cc",
+      "category": "Technical",
+      "author": "DBMS Author",
+      "description": "DBMS overview",
+      "tags": [],
+      "created_at": "2026-04-11T15:21:38.961Z",
+      "__v": 0
+    }
+  ],
+  "summaries": [],
+  "chunks": [
+    {
+      "_id": "69da67027a793ea6e66689d0",
+      "document_id": "69da67027a793ea6e66689cc",
+      "chunk_index": 0,
+      "chunk_text": "Database Management Systems (DBMS) are an essential part of modern computing, providing a structured way to store, manage, and retrieve data efficiently. A DBMS acts as an interface between users and databases, ensuring that data is organized, secure, and easily accessible while maintaining integrity and consistency. It supports various operations such as data insertion, updating, deletion, and querying, often using languages like SQL. One of the key advantages of a DBMS is data independence, wh",
+      "char_start": 0,
+      "char_end": 500,
+      "created_at": "2026-04-11T15:21:38.976Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da67077a793ea6e6668b2b",
+      "document_id": "69da67027a793ea6e66689cc",
+      "chunk_index": 1,
+      "chunk_text": "ich allows changes in database structure without affecting applications. It also provides security features like authentication and authorization, ensuring that only authorized users can access or modify data. Additionally, DBMS reduces redundancy and improves data sharing among multiple users, making it highly suitable for large-scale systems.\n\nA small but important application of DBMS can be seen in banking systems, where it is used to manage customer accounts, transactions, and financial reco",
+      "char_start": 500,
+      "char_end": 1000,
+      "created_at": "2026-04-11T15:21:43.257Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670b7a793ea6e6668c73",
+      "document_id": "69da67027a793ea6e66689cc",
+      "chunk_index": 2,
+      "chunk_text": "rds in a secure and reliable manner. Similarly, DBMS is widely used in airline reservation systems, hospitals, and e-commerce platforms to handle large volumes of data efficiently.\n\nOverall, DBMS plays a crucial role in organizing data in a meaningful way, supporting decision-making processes, and enabling scalable and reliable applications in various industries.\n",
+      "char_start": 1000,
+      "char_end": 1366,
+      "created_at": "2026-04-11T15:21:47.586Z",
+      "__v": 0
+    }
+  ],
+  "chunkTokens": [
+    {
+      "_id": "69da67054336f075e5e5cfe8",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "accessible",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.151Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd0",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "acts",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.178Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d014",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "advantages",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.936Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb0",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "an",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.335Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfc8",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "and",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.937Z",
+      "frequency": 5,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfae",
+      "token": "are",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.278Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd2",
+      "token": "as",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.221Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd6",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "between",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.406Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfba",
+      "token": "computing",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.598Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cff0",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "consistency",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.579Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfcc",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "data",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.036Z",
+      "frequency": 4,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfa6",
+      "token": "database",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.050Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfda",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "databases",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.581Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfac",
+      "token": "dbms",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.216Z",
+      "frequency": 3,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d000",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "deletion",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.278Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe6",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "easily",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.098Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfce",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "efficiently",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.087Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfdc",
+      "token": "ensuring",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.654Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb2",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "essential",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.393Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d016",
+      "token": "independence",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.185Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5cffc",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "insertion",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.154Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfee",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "integrity",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.311Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd4",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "interface",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.350Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe0",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "is",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.893Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cff2",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "it",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.733Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d012",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "key",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.884Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d008",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "languages",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.559Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d00a",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "like",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.605Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfec",
+      "token": "maintaining",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.254Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfc6",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "manage",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.894Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfa8",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "management",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.118Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb8",
+      "token": "modern",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.546Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb6",
+      "token": "of",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.497Z",
+      "frequency": 3,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d004",
+      "token": "often",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.432Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d00e",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "one",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.716Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5cff8",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "operations",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.917Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe2",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "organized",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.947Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb4",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "part",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.446Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfbc",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "providing",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.657Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d002",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "querying",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.372Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfca",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "retrieve",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.985Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe4",
+      "token": "secure",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.996Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d00c",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "sql",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.658Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfc4",
+      "token": "store",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.848Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfbe",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "structured",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.711Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5cffa",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "such",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.971Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cff4",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "supports",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.784Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfaa",
+      "token": "systems",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.165Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfde",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "that",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.734Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d010",
+      "token": "the",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.833Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfc2",
+      "token": "to",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.803Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5cffe",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "updating",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.218Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd8",
+      "token": "users",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.460Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67064336f075e5e5d006",
+      "token": "using",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.510Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cff6",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "various",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.862Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67034336f075e5e5cfc0",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "way",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.758Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d018",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "wh",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.240Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67054336f075e5e5cfea",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "while",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.200Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d04a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "access",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.692Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d08a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "accounts",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.339Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d052",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "additionally",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.918Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d028",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "affecting",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.718Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d01c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "allows",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.366Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d02e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "also",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.872Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d05e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "among",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.343Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d03a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "and",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.300Z",
+      "frequency": 3,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d074",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "application",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.249Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d02a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "applications",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.761Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d038",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "authentication",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.251Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d03c",
+      "token": "authorization",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.347Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d044",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "authorized",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.534Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d07c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "banking",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.694Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d078",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "be",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.517Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d070",
+      "token": "but",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.100Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d048",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "can",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.636Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d01e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "changes",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.448Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d088",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "customer",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.255Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d050",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "data",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.854Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d022",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "database",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.547Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d054",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "dbms",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.967Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d03e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "ensuring",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.396Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d034",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "features",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.148Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d08e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "financial",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.509Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d068",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "for",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.833Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d064",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "highly",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.713Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d01a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "ich",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.317Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d072",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "important",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.166Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d05a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "improves",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.166Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d020",
+      "token": "in",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.499Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d080",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "is",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.898Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d02c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "it",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.805Z",
+      "frequency": 3,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d06a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "largescale",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.894Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d036",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "like",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.200Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d062",
+      "token": "making",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.592Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d086",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "manage",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.097Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d04e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "modify",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.810Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d060",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "multiple",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.400Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d076",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "of",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.328Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d042",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "only",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.490Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d04c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "or",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.761Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d030",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "provides",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.921Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d090",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "reco",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.570Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d056",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "reduces",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.016Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d058",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "redundancy",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.070Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d032",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "security",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.968Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d07a",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "seen",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.584Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d05c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "sharing",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.271Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d06e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "small",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.023Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d024",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "structure",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.602Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67094336f075e5e5d066",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "suitable",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.767Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d06c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "systems",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.943Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d040",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "that",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.444Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d084",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "to",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.015Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d08c",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "transactions",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.393Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d082",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "used",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.957Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67084336f075e5e5d046",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "users",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.594Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da670a4336f075e5e5d07e",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "where",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.787Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da67074336f075e5e5d026",
+      "token": "without",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.672Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a8",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "airline",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.363Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d098",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "and",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.824Z",
+      "frequency": 4,
+      "position": []
+    },
+    {
+      "_id": "69da670f4336f075e5e5d0da",
+      "token": "applications",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:51.029Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c6",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "crucial",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.550Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0be",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "data",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.216Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a0",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "dbms",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.074Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d2",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "decisionmaking",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.432Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0b0",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "ecommerce",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.676Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c0",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "efficiently",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.275Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d6",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "enabling",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.769Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0b6",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "handle",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.935Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0ae",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "hospitals",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.524Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d094",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "in",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.721Z",
+      "frequency": 5,
+      "position": []
+    },
+    {
+      "_id": "69da670f4336f075e5e5d0de",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "industries",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:51.271Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a2",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "is",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.135Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0b8",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "large",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.998Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d09c",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "manner",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.931Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0cc",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "meaningful",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.961Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0bc",
+      "token": "of",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.117Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0ca",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "organizing",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.739Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c2",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "overall",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.369Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0b2",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "platforms",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.728Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c4",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "plays",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.495Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d4",
+      "token": "processes",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.527Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d092",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "rds",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.666Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d09a",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "reliable",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.876Z",
+      "frequency": 2,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0aa",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "reservation",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.413Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c8",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "role",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.600Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d8",
+      "token": "scalable",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.853Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670b4336f075e5e5d096",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "secure",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.775Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d09e",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "similarly",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.013Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d0",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "supporting",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.173Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0ac",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "systems",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.472Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0b4",
+      "token": "to",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.825Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a6",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "used",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.253Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670f4336f075e5e5d0dc",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "various",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:51.161Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0ba",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "volumes",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.063Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0ce",
+      "token": "way",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.029Z",
+      "frequency": 1,
+      "position": []
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a4",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "widely",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.203Z",
+      "frequency": 1,
+      "position": []
+    }
+  ],
+  "tfidf": [
+    {
+      "_id": "69da67054336f075e5e5cfe7",
+      "token": "accessible",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.135Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfcf",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "acts",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.161Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67074336f075e5e5d013",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "advantages",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.924Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfaf",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "an",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.323Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.027777777777777776,
+      "tf_idf_score": 0.01925408834888737
+    },
+    {
+      "_id": "69da67044336f075e5e5cfc7",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "and",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.925Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.06944444444444445,
+      "tf_idf_score": 0.04813522087221842
+    },
+    {
+      "_id": "69da67034336f075e5e5cfad",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "are",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.263Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd1",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "as",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.209Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.027777777777777776,
+      "tf_idf_score": 0.01925408834888737
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd5",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "between",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.394Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb9",
+      "token": "computing",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.585Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfef",
+      "token": "consistency",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.563Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfcb",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "data",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.024Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.05555555555555555,
+      "tf_idf_score": 0.03850817669777474
+    },
+    {
+      "_id": "69da67034336f075e5e5cfa5",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "database",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.029Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd9",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "databases",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.562Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfab",
+      "token": "dbms",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.205Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.041666666666666664,
+      "tf_idf_score": 0.028881132523331052
+    },
+    {
+      "_id": "69da67064336f075e5e5cfff",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "deletion",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.267Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe5",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "easily",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.086Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfcd",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "efficiently",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.074Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfdb",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "ensuring",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.622Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb1",
+      "token": "essential",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.380Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67074336f075e5e5d015",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "independence",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.159Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5cffb",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "insertion",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.132Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfed",
+      "token": "integrity",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.296Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd3",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "interface",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.337Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfdf",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "is",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.869Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.027777777777777776,
+      "tf_idf_score": 0.01925408834888737
+    },
+    {
+      "_id": "69da67054336f075e5e5cff1",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "it",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.686Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d011",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "key",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.869Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d007",
+      "token": "languages",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.547Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d009",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "like",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.593Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfeb",
+      "token": "maintaining",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.237Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfc5",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "manage",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.883Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfa7",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "management",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.105Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb7",
+      "token": "modern",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.535Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb5",
+      "token": "of",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.485Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.041666666666666664,
+      "tf_idf_score": 0.028881132523331052
+    },
+    {
+      "_id": "69da67064336f075e5e5d003",
+      "token": "often",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.413Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d00d",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "one",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.700Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5cff7",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "operations",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.896Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe1",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "organized",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.929Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfb3",
+      "token": "part",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.433Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfbb",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "providing",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.639Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d001",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "querying",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.360Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfc9",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "retrieve",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.972Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe3",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "secure",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.982Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d00b",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "sql",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.644Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfc3",
+      "token": "store",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.835Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfbd",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "structured",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.696Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5cff9",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "such",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.950Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cff3",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "supports",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.771Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfa9",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "systems",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.153Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfdd",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "that",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.716Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d00f",
+      "token": "the",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.821Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfc1",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "to",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.791Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5cffd",
+      "token": "updating",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.194Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67044336f075e5e5cfd7",
+      "token": "users",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:40.447Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67064336f075e5e5d005",
+      "token": "using",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:42.497Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cff5",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "various",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.844Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67034336f075e5e5cfbf",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "way",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:39.745Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67074336f075e5e5d017",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "wh",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.224Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67054336f075e5e5cfe9",
+      "chunk_id": "69da67027a793ea6e66689d0",
+      "token": "while",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:41.186Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.013888888888888888,
+      "tf_idf_score": 0.009627044174443685
+    },
+    {
+      "_id": "69da67084336f075e5e5d049",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "access",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.674Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d089",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "accounts",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.328Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d051",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "additionally",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.904Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d027",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "affecting",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.707Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d01b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "allows",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.353Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d02d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "also",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.855Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d05d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "among",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.327Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d039",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "and",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.287Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.04285714285714286,
+      "tf_idf_score": 0.02970630773828337
+    },
+    {
+      "_id": "69da670a4336f075e5e5d073",
+      "token": "application",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.226Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d029",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "applications",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.750Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d037",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "authentication",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.239Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d03b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "authorization",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.335Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d043",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "authorized",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.523Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d07b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "banking",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.673Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d077",
+      "token": "be",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.494Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d06f",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "but",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.073Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d047",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "can",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.625Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02857142857142857,
+      "tf_idf_score": 0.01980420515885558
+    },
+    {
+      "_id": "69da67074336f075e5e5d01d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "changes",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.436Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d087",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "customer",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.219Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d04f",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "data",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.843Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02857142857142857,
+      "tf_idf_score": 0.01980420515885558
+    },
+    {
+      "_id": "69da67074336f075e5e5d021",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "database",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.532Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d053",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "dbms",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.955Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02857142857142857,
+      "tf_idf_score": 0.01980420515885558
+    },
+    {
+      "_id": "69da67084336f075e5e5d03d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "ensuring",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.383Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d033",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "features",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.133Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d08d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "financial",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.493Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d067",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "for",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.818Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d063",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "highly",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.682Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d019",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "ich",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.304Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d071",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "important",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.142Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d059",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "improves",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.155Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d01f",
+      "token": "in",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.483Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02857142857142857,
+      "tf_idf_score": 0.01980420515885558
+    },
+    {
+      "_id": "69da670b4336f075e5e5d07f",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "is",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.881Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d02b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "it",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.794Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.04285714285714286,
+      "tf_idf_score": 0.02970630773828337
+    },
+    {
+      "_id": "69da670a4336f075e5e5d069",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "largescale",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.879Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d035",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "like",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.188Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d061",
+      "token": "making",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.573Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d085",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "manage",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.074Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d04d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "modify",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.797Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d05f",
+      "token": "multiple",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.377Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d075",
+      "token": "of",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.292Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d041",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "only",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.478Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d04b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "or",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.728Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d02f",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "provides",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.908Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d08f",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "reco",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.552Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d055",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "reduces",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.002Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d057",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "redundancy",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.053Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d031",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "security",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.956Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d079",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "seen",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.571Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d05b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "sharing",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.252Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d06d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "small",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.001Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d023",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "structure",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.584Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67094336f075e5e5d065",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "suitable",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.754Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670a4336f075e5e5d06b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "systems",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:45.932Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02857142857142857,
+      "tf_idf_score": 0.01980420515885558
+    },
+    {
+      "_id": "69da67084336f075e5e5d03f",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "that",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.432Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d083",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "to",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.001Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d08b",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "transactions",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.376Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670b4336f075e5e5d081",
+      "token": "used",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.944Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67084336f075e5e5d045",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "users",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:44.583Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02857142857142857,
+      "tf_idf_score": 0.01980420515885558
+    },
+    {
+      "_id": "69da670a4336f075e5e5d07d",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "token": "where",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:46.775Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da67074336f075e5e5d025",
+      "token": "without",
+      "chunk_id": "69da67077a793ea6e6668b2b",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:43.658Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.014285714285714285,
+      "tf_idf_score": 0.00990210257942779
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a7",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "airline",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.347Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670b4336f075e5e5d097",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "and",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.812Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.08163265306122448,
+      "tf_idf_score": 0.05658344331101594
+    },
+    {
+      "_id": "69da670f4336f075e5e5d0d9",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "applications",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:51.009Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c5",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "crucial",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.532Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0bd",
+      "token": "data",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.167Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.04081632653061224,
+      "tf_idf_score": 0.02829172165550797
+    },
+    {
+      "_id": "69da670c4336f075e5e5d09f",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "dbms",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.056Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.04081632653061224,
+      "tf_idf_score": 0.02829172165550797
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d1",
+      "token": "decisionmaking",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.374Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0af",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "ecommerce",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.654Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0bf",
+      "token": "efficiently",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.262Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d5",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "enabling",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.719Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0b5",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "handle",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.921Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0ad",
+      "token": "hospitals",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.509Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670b4336f075e5e5d093",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "in",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.709Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.10204081632653061,
+      "tf_idf_score": 0.07072930413876993
+    },
+    {
+      "_id": "69da670f4336f075e5e5d0dd",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "industries",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:51.256Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a1",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "is",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.124Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0b7",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "large",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.975Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d09b",
+      "token": "manner",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.916Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0cb",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "meaningful",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.949Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0bb",
+      "token": "of",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.105Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c9",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "organizing",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.701Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c1",
+      "token": "overall",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.345Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0b1",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "platforms",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.712Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c3",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "plays",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.474Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d3",
+      "token": "processes",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.505Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670b4336f075e5e5d091",
+      "token": "rds",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.653Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670b4336f075e5e5d099",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "reliable",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.865Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.04081632653061224,
+      "tf_idf_score": 0.02829172165550797
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a9",
+      "token": "reservation",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.401Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0c7",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "role",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.589Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0d7",
+      "token": "scalable",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.840Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670b4336f075e5e5d095",
+      "token": "secure",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.763Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d09d",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "similarly",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:47.997Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0cf",
+      "token": "supporting",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.080Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0ab",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "systems",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.459Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0b3",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "to",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.796Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a5",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "used",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.239Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670f4336f075e5e5d0db",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "various",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:51.148Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670d4336f075e5e5d0b9",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "volumes",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:49.046Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670e4336f075e5e5d0cd",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "way",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:50.017Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    },
+    {
+      "_id": "69da670c4336f075e5e5d0a3",
+      "chunk_id": "69da670b7a793ea6e6668c73",
+      "token": "widely",
+      "__v": 0,
+      "created_at": "2026-04-11T15:21:48.188Z",
+      "idf": 0.6931471805599453,
+      "tf": 0.02040816326530612,
+      "tf_idf_score": 0.014145860827753985
+    }
+  ],
+  "vocab": [
+    {
+      "_id": "69da670f7a793ea6e6668d4f",
+      "token": "industries",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:51.242Z",
+      "updated_at": "2026-04-11T15:21:51.242Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670e7a793ea6e6668d36",
+      "token": "scalable",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:50.826Z",
+      "updated_at": "2026-04-11T15:21:50.826Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670e7a793ea6e6668d31",
+      "token": "enabling",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:50.702Z",
+      "updated_at": "2026-04-11T15:21:50.702Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670e7a793ea6e6668d28",
+      "token": "processes",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:50.478Z",
+      "updated_at": "2026-04-11T15:21:50.478Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670e7a793ea6e6668d23",
+      "token": "decisionmaking",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:50.309Z",
+      "updated_at": "2026-04-11T15:21:50.309Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670e7a793ea6e6668d1e",
+      "token": "supporting",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:50.060Z",
+      "updated_at": "2026-04-11T15:21:50.060Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668d15",
+      "token": "meaningful",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.926Z",
+      "updated_at": "2026-04-11T15:21:49.926Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668d08",
+      "token": "organizing",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.676Z",
+      "updated_at": "2026-04-11T15:21:49.676Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668cff",
+      "token": "role",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.573Z",
+      "updated_at": "2026-04-11T15:21:49.573Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668cfa",
+      "token": "crucial",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.516Z",
+      "updated_at": "2026-04-11T15:21:49.516Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668cf5",
+      "token": "plays",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.455Z",
+      "updated_at": "2026-04-11T15:21:49.455Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668cec",
+      "token": "overall",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.302Z",
+      "updated_at": "2026-04-11T15:21:49.302Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670d7a793ea6e6668cdb",
+      "token": "volumes",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:49.033Z",
+      "updated_at": "2026-04-11T15:21:49.033Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cd6",
+      "token": "large",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.958Z",
+      "updated_at": "2026-04-11T15:21:48.958Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cd1",
+      "token": "handle",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.906Z",
+      "updated_at": "2026-04-11T15:21:48.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cc8",
+      "token": "platforms",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.699Z",
+      "updated_at": "2026-04-11T15:21:48.699Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cc3",
+      "token": "ecommerce",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.643Z",
+      "updated_at": "2026-04-11T15:21:48.643Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cba",
+      "token": "hospitals",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.494Z",
+      "updated_at": "2026-04-11T15:21:48.494Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cb1",
+      "token": "reservation",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.390Z",
+      "updated_at": "2026-04-11T15:21:48.390Z",
+      "__v": 0
+    },
+    {
+      "_id": "69da670c7a793ea6e6668cac",
+      "token": "airline",
+      "document_frequency": 1,
+      "total_frequency": 1,
+      "idf": 0.6931471805599453,
+      "created_at": "2026-04-11T15:21:48.331Z",
+      "updated_at": "2026-04-11T15:21:48.331Z",
+      "__v": 0
+    }
+  ],
+  "queries": [],
+  "results": [],
+  "clicks": [],
+  "responses": [],
+  "responseSources": [],
+  "caches": [],
+  "feedback": []
+}

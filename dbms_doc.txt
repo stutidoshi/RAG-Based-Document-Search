@@ -1,0 +1,7 @@
+Database Management Systems (DBMS) are an essential part of modern computing, providing a structured way to store, manage, and retrieve data efficiently. A DBMS acts as an interface between users and databases, ensuring that data is organized, secure, and easily accessible while maintaining integrity and consistency. It supports various operations such as data insertion, updating, deletion, and querying, often using languages like SQL. One of the key advantages of a DBMS is data independence, which allows changes in database structure without affecting applications. It also provides security features like authentication and authorization, ensuring that only authorized users can access or modify data. Additionally, DBMS reduces redundancy and improves data sharing among multiple users, making it highly suitable for large-scale systems.
+
+A small but important application of DBMS can be seen in banking systems, where it is used to manage customer accounts, transactions, and financial records in a secure and reliable manner. Similarly, DBMS is widely used in airline reservation systems, hospitals, and e-commerce platforms to handle large volumes of data efficiently.
+
+Overall, DBMS plays a crucial role in organizing data in a meaningful way, supporting decision-making processes, and enabling scalable and reliable applications in various industries.
+
+This subject is taught by Dr. Asha

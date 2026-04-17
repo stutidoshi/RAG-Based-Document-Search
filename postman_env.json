@@ -1,0 +1,11 @@
+{
+  "id": "rag-backend-local-env",
+  "name": "RAG Backend Local",
+  "values": [
+    { "key": "baseUrl", "value": "http://localhost:3001", "enabled": true },
+    { "key": "authToken", "value": "", "enabled": true },
+    { "key": "userId", "value": "", "enabled": true }
+  ],
+  "timestamp": 0,
+  "synced": false
+}

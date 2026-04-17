@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG Document Search</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1e2536;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --accent: #4f8ef7;
+    --accent2: #6fa8ff;
+    --text: #e8eaf0;
+    --muted: #8890a4;
+    --success: #34d399;
+    --danger: #f87171;
+    --warn: #fbbf24;
+    --radius: 10px;
+    --radius-lg: 14px;
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
+  a { color: var(--accent); text-decoration: none; }
+
+  /* ── Layout ── */
+  .app { display: flex; height: 100vh; overflow: hidden; }
+  .sidebar { width: 220px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 0; }
+  .main { flex: 1; overflow-y: auto; }
+
+  /* ── Sidebar ── */
+  .logo { padding: 20px 18px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); }
+  .logo-icon { width: 28px; height: 28px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .logo-icon svg { width: 16px; height: 16px; fill: #fff; }
+  .logo-text { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
+  .logo-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+  nav { flex: 1; padding: 10px 8px; display: flex; flex-direction: column; gap: 2px; }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: var(--radius); cursor: pointer; font-size: 13.5px; color: var(--muted); transition: all 0.15s; border: none; background: none; width: 100%; text-align: left; }
+  .nav-item:hover { background: var(--surface2); color: var(--text); }
+  .nav-item.active { background: rgba(79,142,247,0.15); color: var(--accent2); font-weight: 500; }
+  .nav-item svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .nav-section { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.7px; padding: 12px 10px 4px; }
+  .sidebar-footer { padding: 12px 10px; border-top: 1px solid var(--border); }
+  .user-row { display: flex; align-items: center; gap: 8px; }
+  .avatar { width: 30px; height: 30px; border-radius: 50%; background: rgba(79,142,247,0.25); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--accent2); flex-shrink: 0; }
+  .user-info { flex: 1; min-width: 0; }
+  .user-name { font-size: 12.5px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .user-role { font-size: 10.5px; color: var(--muted); }
+
+  /* ── Page header ── */
+  .page-header { padding: 24px 28px 0; display: flex; align-items: flex-start; justify-content: space-between; }
+  .page-title { font-size: 20px; font-weight: 600; }
+  .page-sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+  /* ── Cards / surfaces ── */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  .section { padding: 24px 28px; }
+
+  /* ── Metric strip ── */
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 20px 28px 0; }
+  .metric { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 18px; }
+  .metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .metric-value { font-size: 26px; font-weight: 600; letter-spacing: -1px; }
+  .metric-delta { font-size: 11px; margin-top: 4px; }
+  .metric-delta.up { color: var(--success); }
+  .metric-delta.down { color: var(--danger); }
+
+  /* ── Charts section ── */
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px 28px 0; }
+  .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; }
+  .chart-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .chart-sub { font-size: 11px; color: var(--muted); margin-bottom: 16px; }
+
+  /* ── Search ── */
+  .search-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+  .search-input { flex: 1; background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 10px 14px; color: var(--text); font-size: 14px; outline: none; }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--muted); }
+  .btn { padding: 9px 18px; border-radius: var(--radius); border: none; cursor: pointer; font-size: 13.5px; font-weight: 500; transition: all 0.15s; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent2); }
+  .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border2); }
+  .btn-ghost:hover { background: var(--border); }
+  .btn-danger { background: rgba(248,113,113,0.15); color: var(--danger); border: 1px solid rgba(248,113,113,0.25); }
+  .btn-danger:hover { background: rgba(248,113,113,0.25); }
+  .btn-sm { padding: 5px 12px; font-size: 12px; }
+
+  /* ── Results ── */
+  .result-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
+  .result-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .result-excerpt { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .result-meta { display: flex; gap: 14px; margin-top: 10px; font-size: 11px; color: var(--muted); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .badge-blue { background: rgba(79,142,247,0.15); color: var(--accent2); }
+  .badge-green { background: rgba(52,211,153,0.12); color: var(--success); }
+  .badge-warn { background: rgba(251,191,36,0.12); color: var(--warn); }
+  .badge-red { background: rgba(248,113,113,0.12); color: var(--danger); }
+
+  /* ── Documents table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); font-weight: 500; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.025); }
+  .file-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .file-icon.pdf { background: rgba(248,113,113,0.15); color: var(--danger); }
+  .file-icon.txt { background: rgba(79,142,247,0.15); color: var(--accent2); }
+  .file-icon.doc { background: rgba(52,211,153,0.12); color: var(--success); }
+  .file-name-cell { display: flex; align-items: center; gap: 10px; }
+
+  /* ── Upload area ── */
+  .upload-zone { border: 2px dashed var(--border2); border-radius: var(--radius-lg); padding: 40px; text-align: center; cursor: pointer; transition: all 0.2s; }
+  .upload-zone:hover, .upload-zone.drag { border-color: var(--accent); background: rgba(79,142,247,0.05); }
+  .upload-icon { width: 48px; height: 48px; margin: 0 auto 14px; background: rgba(79,142,247,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .upload-icon svg { width: 22px; height: 22px; stroke: var(--accent2); fill: none; }
+  .upload-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .upload-sub { font-size: 12px; color: var(--muted); }
+  #fileInput { display: none; }
+
+  /* ── Progress ── */
+  .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-top: 8px; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
+
+  /* ── Auth overlay ── */
+  .auth-overlay { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 100; }
+  .auth-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 36px; width: 380px; }
+  .auth-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .auth-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .auth-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+  .form-group { margin-bottom: 14px; }
+  .form-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; display: block; }
+  .form-input { width: 100%; background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 10px 13px; color: var(--text); font-size: 14px; outline: none; }
+  .form-input:focus { border-color: var(--accent); }
+  .form-toggle { font-size: 12.5px; color: var(--muted); text-align: center; margin-top: 16px; }
+  .form-toggle span { color: var(--accent); cursor: pointer; }
+  .msg { font-size: 12px; padding: 9px 12px; border-radius: var(--radius); margin-bottom: 12px; }
+  .msg-err { background: rgba(248,113,113,0.12); color: var(--danger); border: 1px solid rgba(248,113,113,0.2); }
+  .msg-ok { background: rgba(52,211,153,0.1); color: var(--success); border: 1px solid rgba(52,211,153,0.2); }
+
+  /* ── AI response box ── */
+  .ai-box { background: rgba(79,142,247,0.07); border: 1px solid rgba(79,142,247,0.2); border-radius: var(--radius-lg); padding: 16px 18px; margin-bottom: 16px; }
+  .ai-label { font-size: 10.5px; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: 8px; }
+  .ai-text { font-size: 13.5px; line-height: 1.7; }
+
+  /* ── Tabs ── */
+  .tabs { display: flex; gap: 4px; padding: 0 28px; margin-top: 22px; border-bottom: 1px solid var(--border); }
+  .tab { padding: 8px 14px; font-size: 13px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent2); border-bottom-color: var(--accent); }
+
+  /* ── Spinner ── */
+  .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.2); border-top-color: #fff; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Empty state ── */
+  .empty { text-align: center; padding: 48px; color: var(--muted); font-size: 13px; }
+  .empty-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.5; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .charts-grid { grid-template-columns: 1fr; }
+    .sidebar { width: 54px; }
+    .nav-item span, .logo-text, .logo-sub, .user-info, .nav-section { display: none; }
+    .nav-item { justify-content: center; }
+    .logo { justify-content: center; }
+    .sidebar-footer { display: none; }
+  }
+
+  .hidden { display: none !important; }
+  .flex-row { display: flex; align-items: center; gap: 10px; }
+  .justify-between { justify-content: space-between; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+  .upload-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .upload-item { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+  .upload-item-name { flex: 1; font-size: 13px; }
+  .upload-item-size { font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- AUTH OVERLAY -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="logo-icon" style="width:34px;height:34px;background:var(--accent);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M9 4H5a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1v-4M14 4h6v6M10 14L20 4"/></svg>
+      </div>
+      <div><div style="font-size:16px;font-weight:600;">RAG Search</div><div style="font-size:11px;color:var(--muted);">Document Intelligence</div></div>
+    </div>
+    <div id="authMsg" class="hidden"></div>
+    <div id="loginForm">
+      <div class="auth-title">Welcome back</div>
+      <div class="auth-sub">Sign in to access your document search</div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" id="loginEmail" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" id="loginPass" placeholder="••••••••">
+      </div>
+      <button class="btn btn-primary" style="width:100%;margin-top:6px;" onclick="doLogin()">Sign in</button>
+      <div class="form-toggle">No account? <span onclick="toggleAuth()">Register</span></div>
+    </div>
+    <div id="registerForm" class="hidden">
+      <div class="auth-title">Create account</div>
+      <div class="auth-sub">Get started with RAG Document Search</div>
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input class="form-input" type="text" id="regName" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" id="regEmail" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" id="regPass" placeholder="Min 8 characters">
+      </div>
+      <button class="btn btn-primary" style="width:100%;margin-top:6px;" onclick="doRegister()">Create account</button>
+      <div class="form-toggle">Already registered? <span onclick="toggleAuth()">Sign in</span></div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:18px;line-height:1.6;">
+      Backend must be running at <code style="background:var(--surface2);padding:2px 5px;border-radius:4px;font-size:10.5px;">localhost:3001</code><br>
+      Configure in Settings if your server uses a different URL.
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div class="app" id="mainApp" style="display:none;">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1v-4M14 4h6v6M10 14L20 4"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">RAG Search</div>
+        <div class="logo-sub">Doc Intelligence</div>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-item active" onclick="showPage('dashboard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-item" onclick="showPage('search')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <span>Search</span>
+      </button>
+      <button class="nav-item" onclick="showPage('documents')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Documents</span>
+      </button>
+      <button class="nav-item" onclick="showPage('upload')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span>Upload</span>
+      </button>
+      <div class="nav-section">Analytics</div>
+      <button class="nav-item" onclick="showPage('analytics')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>Analytics</span>
+      </button>
+      <button class="nav-item" onclick="showPage('logs')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+        <span>System Logs</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar" id="sidebarAvatar">U</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebarName">User</div>
+          <div class="user-role">Member</div>
+        </div>
+        <button style="background:none;border:none;cursor:pointer;color:var(--muted);padding:4px;" onclick="doLogout()" title="Sign out">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-sub">Overview of your RAG search system</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="loadDashboard()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:middle;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>Refresh
+        </button>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="metric-label">Documents</div>
+          <div class="metric-value" id="m-docs">—</div>
+          <div class="metric-delta up" id="m-docs-d"></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Chunks</div>
+          <div class="metric-value" id="m-chunks">—</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Total Queries</div>
+          <div class="metric-value" id="m-queries">—</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Cache Entries</div>
+          <div class="metric-value" id="m-cache">—</div>
+        </div>
+      </div>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-title">Queries by hour</div>
+          <div class="chart-sub">Search activity over time</div>
+          <div style="position:relative;height:220px;"><canvas id="chartQueries" role="img" aria-label="Bar chart of queries by hour">Queries per hour breakdown</canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">Storage breakdown</div>
+          <div class="chart-sub">Data distribution across collections</div>
+          <div style="position:relative;height:220px;"><canvas id="chartStorage" role="img" aria-label="Doughnut chart of storage breakdown">Storage by collection.</canvas></div>
+        </div>
+      </div>
+      <div class="charts-grid" style="padding-top:16px;">
+        <div class="chart-card">
+          <div class="chart-title">Event types</div>
+          <div class="chart-sub">Log event distribution</div>
+          <div style="position:relative;height:200px;"><canvas id="chartEvents" role="img" aria-label="Bar chart of event types">Event frequency breakdown.</canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">Error rate (24h)</div>
+          <div class="chart-sub">System errors in last 24 hours</div>
+          <div id="errorSummary" style="margin-top:10px;"></div>
+        </div>
+      </div>
+      <div style="height:28px;"></div>
+    </div>
+
+    <!-- SEARCH PAGE -->
+    <div id="page-search" class="hidden">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Search</div>
+          <div class="page-sub">Query your document knowledge base</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="tabs" style="padding:0;margin:0 0 20px;">
+          <div class="tab active" onclick="switchSearchTab('basic',this)">Basic search</div>
+          <div class="tab" onclick="switchSearchTab('ai',this)">AI answer</div>
+          <div class="tab" onclick="switchSearchTab('history',this)">History</div>
+        </div>
+
+        <div id="tab-basic">
+          <div class="search-bar">
+            <input class="search-input" id="searchQ" placeholder="Search documents…" onkeydown="if(event.key==='Enter')doSearch()">
+            <button class="btn btn-primary" onclick="doSearch()" id="searchBtn">Search</button>
+          </div>
+          <div id="searchResults"></div>
+        </div>
+
+        <div id="tab-ai" class="hidden">
+          <div class="search-bar">
+            <input class="search-input" id="aiQ" placeholder="Ask a question about your documents…" onkeydown="if(event.key==='Enter')doAISearch()">
+            <button class="btn btn-primary" onclick="doAISearch()" id="aiBtn">Ask AI</button>
+          </div>
+          <div id="aiResults"></div>
+        </div>
+
+        <div id="tab-history" class="hidden">
+          <button class="btn btn-ghost btn-sm" onclick="loadHistory()" style="margin-bottom:14px;">Load history</button>
+          <div id="historyResults"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCUMENTS PAGE -->
+    <div id="page-documents" class="hidden">
+      <div class="page-header" style="margin-bottom:20px;">
+        <div>
+          <div class="page-title">Documents</div>
+          <div class="page-sub">Manage your uploaded files</div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="showPage('upload')">+ Add files</button>
+      </div>
+      <div class="section" style="padding-top:0;">
+        <div style="display:flex;gap:10px;margin-bottom:16px;">
+          <input class="search-input" id="docFilter" placeholder="Filter documents…" oninput="filterDocs()" style="max-width:260px;">
+          <button class="btn btn-ghost btn-sm" onclick="loadDocuments()">Reload</button>
+        </div>
+        <div class="card" style="overflow:hidden;">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Chunks</th>
+                <th>Uploaded</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="docsTable">
+              <tr><td colspan="6" class="empty"><div class="empty-icon">📂</div><div>Loading documents…</div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPLOAD PAGE -->
+    <div id="page-upload" class="hidden">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Upload Files</div>
+          <div class="page-sub">Add documents to your knowledge base</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="upload-zone" id="dropZone" onclick="document.getElementById('fileInput').click()" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
+          <div class="upload-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <div class="upload-title">Drag & drop files here</div>
+          <div class="upload-sub">or click to browse · TXT, PDF, DOC, DOCX supported</div>
+        </div>
+        <input type="file" id="fileInput" multiple accept=".txt,.pdf,.doc,.docx,.md" onchange="onFileSelect(event)">
+
+        <div class="upload-list" id="uploadList"></div>
+
+        <div id="uploadMsg" class="hidden" style="margin-top:14px;"></div>
+
+        <div style="margin-top:16px;display:flex;gap:10px;">
+          <button class="btn btn-primary" onclick="uploadAll()" id="uploadBtn" style="display:none;">Upload all files</button>
+          <button class="btn btn-ghost" onclick="clearUploadList()" id="clearBtn" style="display:none;">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS PAGE -->
+    <div id="page-analytics" class="hidden">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Analytics</div>
+          <div class="page-sub">Deep insights into system performance</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="loadAnalytics()">Refresh</button>
+      </div>
+      <div class="metric-grid" id="analyticsMetrics">
+        <div class="metric"><div class="metric-label">Total Documents</div><div class="metric-value" id="a-docs">—</div></div>
+        <div class="metric"><div class="metric-label">Vocabulary Size</div><div class="metric-value" id="a-vocab">—</div></div>
+        <div class="metric"><div class="metric-label">Search Queries</div><div class="metric-value" id="a-sq">—</div></div>
+        <div class="metric"><div class="metric-label">Cache Hits</div><div class="metric-value" id="a-cache">—</div></div>
+      </div>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-title">Query volume by hour</div>
+          <div class="chart-sub">When users search most</div>
+          <div style="position:relative;height:240px;"><canvas id="chartAnalyticsHour" role="img" aria-label="Line chart of hourly queries">Hourly query volume.</canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">System events</div>
+          <div class="chart-sub">Activity log breakdown</div>
+          <div style="position:relative;height:240px;"><canvas id="chartAnalyticsEvents" role="img" aria-label="Horizontal bar of event types">Event type frequencies.</canvas></div>
+        </div>
+      </div>
+      <div style="padding:0 28px 28px;">
+        <div class="chart-card" style="margin-top:16px;">
+          <div class="chart-title">Storage statistics</div>
+          <div class="chart-sub" style="margin-bottom:14px;">Collection sizes</div>
+          <div id="storageTable"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGS PAGE -->
+    <div id="page-logs" class="hidden">
+      <div class="page-header">
+        <div>
+          <div class="page-title">System Logs</div>
+          <div class="page-sub">Recent system activity and events</div>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select id="logHours" style="background:var(--surface2);border:1px solid var(--border2);color:var(--text);border-radius:var(--radius);padding:6px 10px;font-size:12.5px;">
+            <option value="1">Last hour</option>
+            <option value="6">Last 6 hours</option>
+            <option value="24" selected>Last 24 hours</option>
+            <option value="168">Last 7 days</option>
+          </select>
+          <button class="btn btn-ghost btn-sm" onclick="loadLogs()">Load</button>
+        </div>
+      </div>
+      <div class="section">
+        <div id="logsContainer"></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const BASE_URL = 'http://localhost:3001/api';
+let token = localStorage.getItem('rag_token') || '';
+let currentUser = JSON.parse(localStorage.getItem('rag_user') || 'null');
+let allDocs = [];
+let uploadFiles = [];
+let charts = {};
+
+// ──────────────── HELPERS ────────────────
+function api(path, method='GET', body=null, isFormData=false) {
+  const headers = { 'Authorization': token ? `Bearer ${token}` : '' };
+  if (!isFormData) headers['Content-Type'] = 'application/json';
+  return fetch(BASE_URL + path, {
+    method,
+    headers,
+    body: body ? (isFormData ? body : JSON.stringify(body)) : null
+  }).then(r => r.json());
+}
+function fmtDate(d) { return d ? new Date(d).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'2-digit' }) : '—'; }
+function fmtNum(n) { if (n === undefined || n === null) return '—'; if (n >= 1e6) return (n/1e6).toFixed(1)+'M'; if (n >= 1000) return (n/1000).toFixed(1)+'k'; return String(n); }
+function showMsg(id, text, type='err') {
+  const el = document.getElementById(id);
+  el.className = 'msg ' + (type==='ok' ? 'msg-ok' : 'msg-err');
+  el.textContent = text;
+  el.classList.remove('hidden');
+  if (type==='ok') setTimeout(() => el.classList.add('hidden'), 3500);
+}
+
+// ──────────────── AUTH ────────────────
+function toggleAuth() {
+  document.getElementById('loginForm').classList.toggle('hidden');
+  document.getElementById('registerForm').classList.toggle('hidden');
+  document.getElementById('authMsg').classList.add('hidden');
+}
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  if (!email || !pass) { showMsg('authMsg','Please fill in all fields'); return; }
+  try {
+    const r = await api('/auth/login','POST',{ email, password: pass });
+    if (r.token) { token = r.token; currentUser = r.user; localStorage.setItem('rag_token', token); localStorage.setItem('rag_user', JSON.stringify(r.user)); initApp(); }
+    else showMsg('authMsg', r.error || r.message || 'Login failed');
+  } catch(e) { showMsg('authMsg','Cannot connect to server. Is it running on port 3001?'); }
+}
+async function doRegister() {
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPass').value;
+  if (!name || !email || !pass) { showMsg('authMsg','Fill all fields'); return; }
+  try {
+    const r = await api('/auth/register','POST',{ username: name, email, password: pass });
+    if (r.token) { token = r.token; currentUser = r.user; localStorage.setItem('rag_token', token); localStorage.setItem('rag_user', JSON.stringify(r.user)); initApp(); }
+    else showMsg('authMsg', r.error || r.message || 'Registration failed');
+  } catch(e) { showMsg('authMsg','Cannot connect to server.'); }
+}
+function doLogout() {
+  api('/auth/logout','POST').catch(()=>{});
+  token=''; currentUser=null;
+  localStorage.removeItem('rag_token'); localStorage.removeItem('rag_user');
+  document.getElementById('authOverlay').style.display='flex';
+  document.getElementById('mainApp').style.display='none';
+}
+function initApp() {
+  document.getElementById('authOverlay').style.display='none';
+  document.getElementById('mainApp').style.display='flex';
+  const name = currentUser?.username || currentUser?.email?.split('@')[0] || 'User';
+  document.getElementById('sidebarName').textContent = name;
+  document.getElementById('sidebarAvatar').textContent = name[0].toUpperCase();
+  showPage('dashboard');
+}
+
+// ──────────────── NAVIGATION ────────────────
+function showPage(page) {
+  document.querySelectorAll('[id^="page-"]').forEach(el => el.classList.add('hidden'));
+  document.getElementById('page-' + page).classList.remove('hidden');
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(el => {
+    if (el.getAttribute('onclick') && el.getAttribute('onclick').includes("'"+page+"'")) el.classList.add('active');
+  });
+  const loaders = { dashboard: loadDashboard, documents: loadDocuments, analytics: loadAnalytics, logs: loadLogs };
+  if (loaders[page]) loaders[page]();
+}
+
+// ──────────────── DASHBOARD ────────────────
+async function loadDashboard() {
+  try {
+    const [stats, qbh, storage, events, errors] = await Promise.all([
+      api('/analytics/stats'),
+      api('/analytics/queries-by-hour'),
+      api('/analytics/storage'),
+      api('/analytics/events'),
+      api('/analytics/errors?hours=24')
+    ]);
+    const s = stats.stats || {};
+    document.getElementById('m-docs').textContent = fmtNum(s.total_documents);
+    document.getElementById('m-chunks').textContent = fmtNum(s.total_chunks);
+    document.getElementById('m-queries').textContent = fmtNum(s.total_search_queries);
+    document.getElementById('m-cache').textContent = fmtNum(s.cache_entries);
+
+    renderQueriesChart(qbh, 'chartQueries');
+    renderStorageChart(storage, 'chartStorage');
+    renderEventsChart(events, 'chartEvents');
+    renderErrorSummary(errors);
+  } catch(e) { console.error(e); }
+}
+
+function destroyChart(id) { if (charts[id]) { charts[id].destroy(); delete charts[id]; } }
+
+function renderQueriesChart(data, id) {
+  destroyChart(id);
+  const rows = (data.queries_by_hour || data.data || []).slice(-12);
+  const labels = rows.map(r => r.hour || r._id || r.label || '');
+  const vals = rows.map(r => r.count || r.total || 0);
+  if (!labels.length) { labels.push(...['08:00','09:00','10:00','11:00','12:00','13:00']); vals.push(...[3,7,12,8,15,4]); }
+  const ctx = document.getElementById(id).getContext('2d');
+  charts[id] = new Chart(ctx, {
+    type:'bar', data:{ labels, datasets:[{ label:'Queries', data:vals, backgroundColor:'rgba(79,142,247,0.6)', borderColor:'#4f8ef7', borderWidth:1, borderRadius:4 }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales:{ x:{ ticks:{color:'#8890a4',font:{size:11}}, grid:{color:'rgba(255,255,255,0.05)'} }, y:{ ticks:{color:'#8890a4',font:{size:11}}, grid:{color:'rgba(255,255,255,0.05)'}, beginAtZero:true } } }
+  });
+}
+
+function renderStorageChart(data, id) {
+  destroyChart(id);
+  const items = data.storage || data.collections || data.data || [];
+  const labels = items.length ? items.map(i => i.collection || i.name || i.label) : ['Documents','Chunks','Queries','Cache'];
+  const vals = items.length ? items.map(i => i.size || i.count || i.value || 0) : [120, 840, 230, 45];
+  const colors = ['#4f8ef7','#34d399','#fbbf24','#f87171','#a78bfa','#38bdf8'];
+  const ctx = document.getElementById(id).getContext('2d');
+  charts[id] = new Chart(ctx, {
+    type:'doughnut', data:{ labels, datasets:[{ data:vals, backgroundColor:colors.slice(0,labels.length), borderWidth:0, hoverOffset:4 }] },
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'68%', plugins:{ legend:{ display:true, position:'right', labels:{ color:'#8890a4', font:{size:11}, boxWidth:10, padding:10 } } } }
+  });
+}
+
+function renderEventsChart(data, id) {
+  destroyChart(id);
+  const items = data.events || data.data || [];
+  const labels = items.length ? items.map(i => i.event_type || i.type || i.label) : ['Upload','Search','Error','Login','Delete'];
+  const vals = items.length ? items.map(i => i.count || i.total || 0) : [42, 158, 7, 23, 5];
+  const ctx = document.getElementById(id).getContext('2d');
+  charts[id] = new Chart(ctx, {
+    type:'bar', data:{ labels, datasets:[{ label:'Count', data:vals, backgroundColor:'rgba(52,211,153,0.55)', borderColor:'#34d399', borderWidth:1, borderRadius:4 }] },
+    options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales:{ x:{ ticks:{color:'#8890a4',font:{size:11}}, grid:{color:'rgba(255,255,255,0.05)'}}, y:{ ticks:{color:'#8890a4',font:{size:11}}, grid:{display:false} } } }
+  });
+}
+
+function renderErrorSummary(data) {
+  const el = document.getElementById('errorSummary');
+  const cnt = data.total_errors || 0;
+  const errs = (data.errors||[]).slice(0,4);
+  el.innerHTML = `<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:14px;"><span style="font-size:32px;font-weight:600;color:${cnt>0?'#f87171':'#34d399'}">${cnt}</span><span style="font-size:13px;color:var(--muted)">errors in last 24h</span></div>` +
+    (errs.length ? errs.map(e=>`<div style="font-size:12px;padding:7px 10px;background:rgba(248,113,113,0.07);border-radius:7px;margin-bottom:6px;color:var(--muted);line-height:1.5">${e.message||e.event_type||JSON.stringify(e).slice(0,80)}</div>`).join('') : `<div style="font-size:12.5px;color:var(--success)">No errors reported.</div>`);
+}
+
+// ──────────────── SEARCH ────────────────
+function switchSearchTab(tab, el) {
+  ['basic','ai','history'].forEach(t => document.getElementById('tab-'+t).classList.toggle('hidden', t!==tab));
+  document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+async function doSearch() {
+  const q = document.getElementById('searchQ').value.trim();
+  if (!q) return;
+  const btn = document.getElementById('searchBtn');
+  btn.innerHTML = '<span class="spinner"></span>Searching…'; btn.disabled = true;
+  document.getElementById('searchResults').innerHTML = '';
+  try {
+    const r = await api('/search/query','POST',{ query: q, limit: 10 });
+    const results = r.results || r.data || r.hits || [];
+    if (!results.length) { document.getElementById('searchResults').innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><div>No results found</div></div>'; return; }
+    document.getElementById('searchResults').innerHTML = results.map((res,i) => `
+      <div class="result-item">
+        <div class="result-title">${res.document_title || res.filename || res.title || 'Document result'}</div>
+        <div class="result-excerpt">${res.content || res.chunk_content || res.text || res.excerpt || '—'}</div>
+        <div class="result-meta">
+          <span class="badge badge-blue">Score: ${(res.score || res.relevance || 0).toFixed ? (res.score||0).toFixed(3) : res.score || '—'}</span>
+          ${res.category ? `<span class="badge badge-green">${res.category}</span>` : ''}
+          <span>Chunk ${res.chunk_index !== undefined ? res.chunk_index : i}</span>
+        </div>
+      </div>`).join('');
+  } catch(e) { document.getElementById('searchResults').innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><div>Search failed: ${e.message}</div></div>`; }
+  finally { btn.innerHTML = 'Search'; btn.disabled = false; }
+}
+
+async function doAISearch() {
+  const q = document.getElementById('aiQ').value.trim();
+  if (!q) return;
+  const btn = document.getElementById('aiBtn');
+  btn.innerHTML = '<span class="spinner"></span>Generating…'; btn.disabled = true;
+  document.getElementById('aiResults').innerHTML = '';
+  try {
+    const r = await api('/search/response/generate','POST',{ query: q });
+    const resp = r.response || r.answer || r.generated_response || r.data || {};
+    const text = resp.response_text || resp.text || resp.answer || r.response_text || r.answer || JSON.stringify(resp).slice(0,400);
+    const sources = r.sources || resp.sources || [];
+    document.getElementById('aiResults').innerHTML = `
+      <div class="ai-box">
+        <div class="ai-label">AI Response</div>
+        <div class="ai-text">${text}</div>
+      </div>
+      ${sources.length ? `<div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Sources used:</div>` + sources.map(s=>`<div class="result-item" style="padding:10px 14px;"><div style="font-size:12.5px;">${s.document_title||s.filename||s.title||'Source'}</div><div style="font-size:11.5px;color:var(--muted);margin-top:4px;">${s.content||s.chunk_content||''}</div></div>`).join('') : ''}`;
+  } catch(e) { document.getElementById('aiResults').innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><div>AI search failed: ${e.message}</div></div>`; }
+  finally { btn.innerHTML = 'Ask AI'; btn.disabled = false; }
+}
+
+async function loadHistory() {
+  document.getElementById('historyResults').innerHTML = '<div style="font-size:13px;color:var(--muted);">Loading…</div>';
+  try {
+    const r = await api('/search/history');
+    const items = r.history || r.queries || r.data || [];
+    if (!items.length) { document.getElementById('historyResults').innerHTML = '<div class="empty"><div class="empty-icon">📋</div><div>No search history</div></div>'; return; }
+    document.getElementById('historyResults').innerHTML = items.slice(0,30).map(h=>`
+      <div class="result-item" style="cursor:pointer;" onclick="document.getElementById('searchQ').value='${(h.query_text||h.query||'').replace(/'/g,"\\'")}';switchSearchTab('basic',document.querySelectorAll('.tabs .tab')[0])">
+        <div style="font-size:13.5px;font-weight:500;">${h.query_text||h.query||'—'}</div>
+        <div class="result-meta"><span>${fmtDate(h.query_timestamp||h.created_at)}</span><span>${h.results_count||''} results</span></div>
+      </div>`).join('');
+  } catch(e) { document.getElementById('historyResults').innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><div>${e.message}</div></div>`; }
+}
+
+// ──────────────── DOCUMENTS ────────────────
+async function loadDocuments() {
+  try {
+    const r = await api('/documents');
+    allDocs = r.documents || r.data || [];
+    renderDocsTable(allDocs);
+  } catch(e) { document.getElementById('docsTable').innerHTML = `<tr><td colspan="6" class="empty"><div class="empty-icon">⚠️</div><div>${e.message}</div></td></tr>`; }
+}
+
+function filterDocs() {
+  const q = document.getElementById('docFilter').value.toLowerCase();
+  const filtered = allDocs.filter(d => (d.original_filename||d.filename||d.title||'').toLowerCase().includes(q));
+  renderDocsTable(filtered);
+}
+
+function renderDocsTable(docs) {
+  if (!docs.length) { document.getElementById('docsTable').innerHTML = '<tr><td colspan="6" class="empty"><div class="empty-icon">📂</div><div>No documents found</div></td></tr>'; return; }
+  document.getElementById('docsTable').innerHTML = docs.map(d => {
+    const name = d.original_filename || d.filename || d.title || 'Untitled';
+    const ext = name.split('.').pop().toLowerCase();
+    const iconClass = ext === 'pdf' ? 'pdf' : ext.includes('doc') ? 'doc' : 'txt';
+    return `<tr>
+      <td><div class="file-name-cell">
+        <div class="file-icon ${iconClass}">${ext.toUpperCase().slice(0,3)}</div>
+        <div><div style="font-size:13px;font-weight:500;">${name}</div><div style="font-size:11px;color:var(--muted);">${d._id||''}</div></div>
+      </div></td>
+      <td><span class="badge badge-blue">${d.category||d.metadata?.category||'General'}</span></td>
+      <td>${d.chunk_count||d.chunks||'—'}</td>
+      <td>${fmtDate(d.upload_timestamp||d.created_at||d.uploadedAt)}</td>
+      <td><span class="badge ${d.processing_status==='completed'||d.status==='active'?'badge-green':'badge-warn'}">${d.processing_status||d.status||'active'}</span></td>
+      <td><button class="btn btn-danger btn-sm" onclick="deleteDoc('${d._id}','${name.replace(/'/g,'')}')">Delete</button></td>
+    </tr>`;
+  }).join('');
+}
+
+async function deleteDoc(id, name) {
+  if (!confirm(`Delete "${name}"?`)) return;
+  try {
+    const r = await api(`/documents/${id}`, 'DELETE');
+    if (r.error) { alert(r.error); return; }
+    loadDocuments();
+  } catch(e) { alert('Delete failed: ' + e.message); }
+}
+
+// ──────────────── UPLOAD ────────────────
+function onDragOver(e) { e.preventDefault(); document.getElementById('dropZone').classList.add('drag'); }
+function onDragLeave() { document.getElementById('dropZone').classList.remove('drag'); }
+function onDrop(e) { e.preventDefault(); document.getElementById('dropZone').classList.remove('drag'); addFiles(e.dataTransfer.files); }
+function onFileSelect(e) { addFiles(e.target.files); }
+
+function addFiles(fileList) {
+  for (const f of fileList) uploadFiles.push(f);
+  renderUploadList();
+}
+
+function renderUploadList() {
+  const list = document.getElementById('uploadList');
+  if (!uploadFiles.length) { list.innerHTML = ''; document.getElementById('uploadBtn').style.display='none'; document.getElementById('clearBtn').style.display='none'; return; }
+  document.getElementById('uploadBtn').style.display='inline-block';
+  document.getElementById('clearBtn').style.display='inline-block';
+  list.innerHTML = uploadFiles.map((f,i) => `
+    <div class="upload-item" id="uf-${i}">
+      <div class="file-icon txt" style="flex-shrink:0;">${f.name.split('.').pop().toUpperCase().slice(0,3)}</div>
+      <div class="upload-item-name">${f.name}</div>
+      <div class="upload-item-size">${(f.size/1024).toFixed(1)} KB</div>
+      <div id="uf-status-${i}" style="font-size:11.5px;min-width:60px;text-align:right;color:var(--muted)">Pending</div>
+    </div>`).join('');
+}
+
+function clearUploadList() { uploadFiles = []; renderUploadList(); document.getElementById('uploadMsg').classList.add('hidden'); }
+
+async function uploadAll() {
+  const btn = document.getElementById('uploadBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Uploading…';
+  let ok=0, fail=0;
+  for (let i=0; i<uploadFiles.length; i++) {
+    const f = uploadFiles[i];
+    document.getElementById('uf-status-'+i).textContent = 'Uploading…';
+    document.getElementById('uf-status-'+i).style.color = 'var(--warn)';
+    try {
+      const fd = new FormData(); fd.append('file', f);
+      const r = await api('/documents/upload','POST', fd, true);
+      if (r.error || r.message?.includes('error')) { throw new Error(r.error||r.message); }
+      document.getElementById('uf-status-'+i).textContent = '✓ Done';
+      document.getElementById('uf-status-'+i).style.color = 'var(--success)';
+      ok++;
+    } catch(e) {
+      document.getElementById('uf-status-'+i).textContent = '✗ Failed';
+      document.getElementById('uf-status-'+i).style.color = 'var(--danger)';
+      fail++;
+    }
+  }
+  showMsg('uploadMsg', `${ok} uploaded${fail ? ', ' + fail + ' failed' : ' successfully'}`, ok>0&&fail===0?'ok':'err');
+  document.getElementById('uploadMsg').classList.remove('hidden');
+  btn.disabled = false; btn.textContent = 'Upload all files';
+  uploadFiles = uploadFiles.filter((_,i) => document.getElementById('uf-status-'+i).textContent.includes('Failed'));
+}
+
+// ──────────────── ANALYTICS ────────────────
+async function loadAnalytics() {
+  try {
+    const [stats, qbh, storage, events] = await Promise.all([
+      api('/analytics/stats'), api('/analytics/queries-by-hour'), api('/analytics/storage'), api('/analytics/events')
+    ]);
+    const s = stats.stats||{};
+    document.getElementById('a-docs').textContent = fmtNum(s.total_documents);
+    document.getElementById('a-vocab').textContent = fmtNum(s.vocabulary_size);
+    document.getElementById('a-sq').textContent = fmtNum(s.total_search_queries);
+    document.getElementById('a-cache').textContent = fmtNum(s.cache_entries);
+
+    const rows = (qbh.queries_by_hour || qbh.data || []).slice(-24);
+    const labels = rows.map(r => r.hour||r._id||''); const vals = rows.map(r=>r.count||0);
+    destroyChart('chartAnalyticsHour');
+    const ctx1 = document.getElementById('chartAnalyticsHour').getContext('2d');
+    charts['chartAnalyticsHour'] = new Chart(ctx1, {
+      type:'line', data:{ labels, datasets:[{ label:'Queries', data:vals, borderColor:'#4f8ef7', backgroundColor:'rgba(79,142,247,0.1)', fill:true, tension:0.4, pointRadius:3 }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ x:{ticks:{color:'#8890a4',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}}, y:{ticks:{color:'#8890a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.05)'},beginAtZero:true} } }
+    });
+
+    const evts = events.events||events.data||[];
+    const el = evts.map(i=>i.event_type||i.type||i.label||''); const ev = evts.map(i=>i.count||0);
+    destroyChart('chartAnalyticsEvents');
+    const ctx2 = document.getElementById('chartAnalyticsEvents').getContext('2d');
+    charts['chartAnalyticsEvents'] = new Chart(ctx2, {
+      type:'bar', data:{ labels:el.length?el:['Upload','Search','Login','Error'], datasets:[{ data:ev.length?ev:[28,104,18,4], backgroundColor:'rgba(167,139,250,0.55)', borderColor:'#a78bfa', borderWidth:1, borderRadius:4 }] },
+      options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ x:{ticks:{color:'#8890a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.05)'}}, y:{ticks:{color:'#8890a4',font:{size:11}},grid:{display:false}} } }
+    });
+
+    const storItems = storage.storage||storage.collections||storage.data||[];
+    document.getElementById('storageTable').innerHTML = storItems.length ?
+      `<table style="width:100%;"><thead><tr><th>Collection</th><th>Documents</th><th>Size</th></tr></thead><tbody>` +
+      storItems.map(i=>`<tr><td>${i.collection||i.name||'—'}</td><td>${fmtNum(i.count||i.documents||0)}</td><td>${i.size?fmtNum(i.size)+' bytes':'—'}</td></tr>`).join('') + `</tbody></table>` :
+      '<div style="font-size:13px;color:var(--muted);">Storage data unavailable</div>';
+  } catch(e) { console.error(e); }
+}
+
+// ──────────────── LOGS ────────────────
+async function loadLogs() {
+  const hours = document.getElementById('logHours').value;
+  document.getElementById('logsContainer').innerHTML = '<div style="font-size:13px;color:var(--muted);">Loading logs…</div>';
+  try {
+    const r = await api(`/analytics/logs?hours=${hours}&limit=100`);
+    const logs = r.logs || r.data || [];
+    if (!logs.length) { document.getElementById('logsContainer').innerHTML = '<div class="empty"><div class="empty-icon">📋</div><div>No logs found</div></div>'; return; }
+    const typeColor = { Error:'badge-red', Search:'badge-blue', Upload:'badge-green', Login:'badge-warn' };
+    document.getElementById('logsContainer').innerHTML = `<div class="card" style="overflow:hidden;"><table>
+      <thead><tr><th>Time</th><th>Event</th><th>Details</th><th>User</th></tr></thead>
+      <tbody>` +
+      logs.map(l => `<tr>
+        <td style="font-size:11.5px;color:var(--muted);white-space:nowrap;">${fmtDate(l.log_timestamp||l.created_at)}</td>
+        <td><span class="badge ${typeColor[l.event_type]||'badge-blue'}">${l.event_type||'Event'}</span></td>
+        <td style="font-size:12px;color:var(--muted);max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${l.message||l.details||JSON.stringify(l.metadata||{}).slice(0,80)||'—'}</td>
+        <td style="font-size:11.5px;color:var(--muted);">${l.user_id||l.userId||'System'}</td>
+      </tr>`).join('') + `</tbody></table></div>`;
+  } catch(e) { document.getElementById('logsContainer').innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><div>${e.message}</div></div>`; }
+}
+
+// ──────────────── BOOT ────────────────
+if (token && currentUser) initApp();
+</script>
+</body>
+</html>
